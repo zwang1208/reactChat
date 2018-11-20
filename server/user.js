@@ -4,6 +4,7 @@ const utils = require('utility')//md5
 const Router = express.Router()
 const model = require('./model')
 const User = model.getModel('user')
+const _filter = {pwd: 0, __v: 0}
 
 Router.get('/list', function(req, res){
     //User.deleteMany({},function(){})
@@ -14,10 +15,11 @@ Router.get('/list', function(req, res){
 
 Router.post('/login', function(req, res){
     const {user, pwd} = req.body
-    User.findOne({user, pwd: md5Pwd(pwd)}, {pwd: 0}, function(err, doc){
+    User.findOne({user, pwd: md5Pwd(pwd)}, _filter, function(err, doc){
         if(!doc){
             return res.json({code: 1, msg: 'username or password is incorrect'})
         }
+        res.cookie('user_id', doc._id)
         return res.json({code: 0, data: doc})
     })
 })
@@ -29,18 +31,33 @@ Router.post('/register', function(req, res){
         if(doc){
             return res.json({code: 1, msg:'duplicate name'})
         }
-        User.create({user, type, pwd: md5Pwd(pwd)}, function(err, doc){
+
+        const userModel = new User({user, type, pwd: md5Pwd(pwd)})
+
+        userModel.save(function(err, doc){
             if(err){
-                console.log(err)
                 return res.json({code: 1, msg:'error occurred'})
             }
-            return res.json({code: 0})
+            const {user, type, _id} = doc
+            res.cookie('user_id', _id)
+            return res.json({code: 0, data: {user, type, _id}})
         })
     })
 })
 
 Router.get('/info', function(req, res){
-    return res.json({code: 1})
+    const{user_id} = req.cookies
+    if(!user_id){
+        return res.json({code: 1})
+    }
+    User.findOne({_id: user_id}, _filter, function(err, doc){
+        if(err){
+            return res.json({code: 1, msg: 'error occurred'})
+        }
+        if(doc){
+            return res.json({code: 0, data: doc})
+        }
+    })
 })
 
 //security
