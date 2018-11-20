@@ -18,7 +18,7 @@ class AuthRoute extends Component{
             })
     }
     render(){
-        return <h2>test</h2>
+        return null
     }
 }
 
