@@ -10,6 +10,7 @@ import './config'
 import Login from './container/login/login'
 import Register from './container/register/register'
 import AuthRoute from './component/Authroute/authroute'
+import Bossinfo from './container/bossinfo/bossinfo'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(
@@ -25,6 +26,7 @@ ReactDOM.render(
                 <AuthRoute></AuthRoute>
                 <Route path='/login' component={ Login }></Route>
                 <Route path='/register' component={ Register }></Route>
+                <Route path='/boss_info' component={ Bossinfo }></Route>
             </div>
         </BrowserRouter>
     </Provider>),
