@@ -28,7 +28,7 @@ class Dashboard extends Component{
         const navList = [
             {
                 path: '/boss',
-                text: 'Boss',
+                text: 'Applicant',
                 icon: 'boss',
                 title: 'Applicant List',
                 component: Boss,
@@ -36,7 +36,7 @@ class Dashboard extends Component{
             },
             {
                 path: '/applicant',
-                text: 'Applicant',
+                text: 'Boss',
                 icon: 'job',
                 title: 'Boss List',
                 component: Applicant,
