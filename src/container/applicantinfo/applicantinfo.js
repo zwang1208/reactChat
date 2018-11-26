@@ -10,15 +10,13 @@ import {Redirect} from 'react-router-dom'
     {update}
 )
 
-class BossInfo extends Component{
+class Applicantinfo extends Component{
     constructor(props){
         super(props)
         this.state = {
             position: '',
-            company: '',
-            salary: '',
-            jd: '',
-            avatar: ''
+            avatar: '',
+            resume:'',
         }
     }
     handleChange(key, val){
@@ -32,7 +30,7 @@ class BossInfo extends Component{
         return (
             <div>
                 {redirect && redirect!==path? <Redirect to={this.props.redirectTo}></Redirect> :null}
-                <NavBar mode="dark">Boss information</NavBar>
+                <NavBar mode="dark">Applicant information</NavBar>
                 <AvatarSelector selectAvatar={avaName=>{
                     this.setState({
                         avatar: avaName
@@ -41,15 +39,9 @@ class BossInfo extends Component{
                 <InputItem onChange={v=>this.handleChange('position', v)}>
                     Position
                 </InputItem>
-                <InputItem onChange={v=>this.handleChange('company', v)}>
-                    Company
-                </InputItem>
-                <InputItem onChange={v=>this.handleChange('salary', v)}>
-                    Salary
-                </InputItem>
                 <TextareaItem 
                     title='Description' 
-                    onChange={v=>this.handleChange('jd', v)}
+                    onChange={v=>this.handleChange('resume', v)}
                     rows = {3}
                     autoHeight />
                 <Button type='primary' onClick={()=>{
@@ -60,4 +52,4 @@ class BossInfo extends Component{
     }
 }
 
-export default BossInfo
+export default Applicantinfo
