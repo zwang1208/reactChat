@@ -15,7 +15,7 @@ class Applicantinfo extends Component{
         super(props)
         this.state = {
             position: '',
-            resume:'',
+            desc:'',
         }
     }
     handleChange(key, val){
@@ -40,7 +40,7 @@ class Applicantinfo extends Component{
                 </InputItem>
                 <TextareaItem 
                     title='Description' 
-                    onChange={v=>this.handleChange('resume', v)}
+                    onChange={v=>this.handleChange('desc', v)}
                     rows = {3}
                     autoHeight />
                 <Button type='primary' onClick={()=>{

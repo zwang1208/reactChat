@@ -4,10 +4,8 @@ import { NavBar } from 'antd-mobile';
 import { Switch, Route } from 'react-router-dom'
 import NavLinkbar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
+import Applicant from '../../component/applicant/applicant'
 
-function Applicant(){
-    return <h2>app</h2>
-}
 function Msg(){
     return <h2>msg</h2>
 }

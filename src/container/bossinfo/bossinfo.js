@@ -17,7 +17,7 @@ class BossInfo extends Component{
             position: '',
             company: '',
             salary: '',
-            jd: '',
+            desc: '',
             avatar: ''
         }
     }
@@ -49,7 +49,7 @@ class BossInfo extends Component{
                 </InputItem>
                 <TextareaItem 
                     title='Description' 
-                    onChange={v=>this.handleChange('jd', v)}
+                    onChange={v=>this.handleChange('desc', v)}
                     rows = {3}
                     autoHeight />
                 <Button type='primary' onClick={()=>{

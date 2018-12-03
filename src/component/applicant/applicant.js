@@ -2,22 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { WingBlank, Card, WhiteSpace } from 'antd-mobile';
 import { getUserList } from '../../redux/chatuser.redux'
-import UserCard from '../usercard/usercard';
+import UserCard from '../../component/usercard/usercard'
 
 @connect(
     state => state.chatuser,
     { getUserList }
 )
 
-class Boss extends Component{
+class Applicant extends Component{
     componentDidMount(){
-        this.props.getUserList('Applicant')   
+        this.props.getUserList('Boss')
     }
+
     render(){
-        return (
+        return(
             <UserCard userlist={this.props.userlist}></UserCard>
         )
     }
 }
 
-export default Boss
+export default Applicant

@@ -17,8 +17,7 @@ const models = {
         'position': {type: String},
         'company': {type: String},
         'salary': {type: String},
-        'resume': {type: String},
-        'jd': {type: String},
+        'desc': {type: String},
     },
     chat: {
 
