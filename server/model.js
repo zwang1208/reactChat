@@ -14,9 +14,11 @@ const models = {
         'type': {type: String, require: true},
         'avatar': {type: String},
         'intro': {type: String},
-        'title': {type: String},
+        'position': {type: String},
         'company': {type: String},
-        'salary': {type: String}
+        'salary': {type: String},
+        'resume': {type: String},
+        'jd': {type: String},
     },
     chat: {
 

@@ -15,7 +15,6 @@ class Applicantinfo extends Component{
         super(props)
         this.state = {
             position: '',
-            avatar: '',
             resume:'',
         }
     }
