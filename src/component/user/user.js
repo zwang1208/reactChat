@@ -17,7 +17,6 @@ class User extends Component{
     }
     logout(){
         const alert = Modal.alert
-
         alert('Logout', 'Are you sure?', [
             { text: 'Cancel', onPress: () => console.log('cancel') },
             { text: 'Ok', onPress: () => { 
@@ -33,8 +32,7 @@ class User extends Component{
         const Brief = Item.Brief
         console.log(this.props)
         return props.user?(
-            <div>
-                
+            <div>           
                 <Result 
                     img={<img src={require(`../img/${props.avatar}.png`)} style={{width: 50}} alt=''/>}
                     title={props.user}
@@ -54,7 +52,7 @@ class User extends Component{
                     <Item onClick={this.logout}>Log Out</Item>
                 </List>
             </div>
-        ): <Redirect to={props.redirectTo}/>
+        ): <Redirect to={props.redirectTo} />
     }
 }
 
