@@ -13,7 +13,7 @@ class NavLinkBar extends Component{
         const navList = this.props.data.filter(v=>!v.hide)
         const {pathname} = this.props.location
         return(
-            <div style={{position: 'fixed', height: '100%', width: '100%', top: 0}}>
+            <div>
                 <TabBar>
                     {navList.map(v=>(
                         <TabBar.Item 

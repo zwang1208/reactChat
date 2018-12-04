@@ -8,3 +8,16 @@
     bottom: 0;
     width: 100%;
 }
+.am-tab-bar{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height:auto;
+}
+.am-navbar{
+    height: 45px;
+}
+ 
+.am-tab-bar {
+    height: 50px !important;
+}

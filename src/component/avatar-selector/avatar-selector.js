@@ -20,7 +20,7 @@ class AvatarSelector extends Component{
                             }))
         const gridHeader = this.state.icon? (<div>
                                                 <span>Avatar you choose</span>
-                                                <img style={{width:20}} src={this.state.icon}/>
+                                                <img style={{width:20}} src={this.state.icon} alt=''/>
                                              </div>)
                                              :
                                              'Please choose avatar'

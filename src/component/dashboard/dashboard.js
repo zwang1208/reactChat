@@ -5,12 +5,10 @@ import { Switch, Route } from 'react-router-dom'
 import NavLinkbar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Applicant from '../../component/applicant/applicant'
+import User from '../../component/user/user'
 
 function Msg(){
     return <h2>msg</h2>
-}
-function User(){
-    return <h2>user</h2>
 }
 
 @connect(
