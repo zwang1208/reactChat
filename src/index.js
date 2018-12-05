@@ -13,12 +13,41 @@ import AuthRoute from './component/Authroute/authroute'
 import BossInfo from './container/bossinfo/bossinfo'
 import ApplicantInfo from './container/applicantinfo/applicantinfo'
 import Dashboard from './component/dashboard/dashboard'
+import Chat from './component/chat/chat'
 
+const loadState = () => {
+    try {
+      const serializedState = localStorage.getItem('state');
+      if(serializedState === null) {
+        return undefined;
+      }
+      return JSON.parse(serializedState);
+    } catch (e) {
+      return undefined;
+    }
+  };
+  
+  const saveState = (state) => {
+    try {
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem('state', serializedState);
+    } catch (e) {
+      // Ignore write errors;
+    }
+  };
+  
+  const peristedState = loadState();
+  
+  
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers(
+const store = createStore(reducer, peristedState, composeEnhancers(
     applyMiddleware(thunk)
 ))
+
+store.subscribe(() => {
+    saveState(store.getState());
+  });
 
 ReactDOM.render(
     (<Provider store ={store}>
@@ -30,6 +59,7 @@ ReactDOM.render(
                     <Route path='/register' component={ Register }></Route>
                     <Route path='/boss_info' component={ BossInfo }></Route>
                     <Route path='/applicant_info' component={ ApplicantInfo }></Route>
+                    <Route path='/chat/:user' component={ Chat }></Route>
                     <Route component={ Dashboard }></Route>
                 </Switch>
             </div>
