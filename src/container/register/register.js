@@ -13,7 +13,6 @@ const RadioItem = Radio.RadioItem
     state => state.user,
     {register}
 )
-
 @hocForm
 class Register extends Component{
     constructor(props){

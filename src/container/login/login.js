@@ -10,7 +10,6 @@ import hocForm from '../../component/form_hoc/form_hoc'
     state => state.user,
     {login}
 )
-
 @hocForm
 class Login extends Component{
     constructor(props){
