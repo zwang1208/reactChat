@@ -14,7 +14,6 @@ class Chat extends Component{
         this.state = {
             text:'',
             msg: [],
-            showEmoji: false,
         }
     }
     componentDidMount(){
@@ -23,8 +22,11 @@ class Chat extends Component{
         //         msg: [...this.state.msg, data.text]
         //     })
         // })
-        this.props.getMsgList()
-        this.props.recvMsg()
+        if(!this.props.chat.chatmsg.length){
+            this.props.getMsgList()
+            this.props.recvMsg()
+        }
+        
     }
     fixCarousel(){
         setTimeout(function(){
@@ -35,14 +37,14 @@ class Chat extends Component{
         // socket.emit('sendmsg', {text: this.state.text})
         // this.setState({text: ''})
         const from = this.props.user._id //current user
-        console.log(this.props.user._id )
+        console.log(this.props)
         const to = this.props.match.params.user
         const msg = this.state.text
         this.props.sendMsg({from, to, msg})
-        this.setState({text: ''})
+        this.setState({text: '', showEmoji: false})
     }
     render(){
-        console.log(this.props)
+        //console.log(this.props)
         const Item = List.Item
         const userId = this.props.match.params.user
         const users = this.props.chat.users
